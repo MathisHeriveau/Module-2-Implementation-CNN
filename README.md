@@ -13,7 +13,7 @@ Avant tout, quand on parle d'image, il faut directement penser à sa résolution
 
 <div style="display:flex; flex-direction:row">
     <img src="full_vision.png" alt="Texte alternatif" width="250"/>
-    <img src="low_vision.png" alt="Texte alternatif" width="300"/>
+    <img src="low_vision.png" alt="Texte alternatif" width="280"/>
 </div>
 Pour la première image, la résolution est bien trop élevée. L'image contient beaucoup trop de détails inutiles et n'a pas nécessairement besoin d'afficher le nombre de balles restantes, la vie, la sélection d'arme, ainsi que tout le reste. Une réduction du nombre de pixels a été appliquée, permettant aux éléments principaux de ressortir clairement à l'œil nu.
 
@@ -35,10 +35,9 @@ Par exemple, dans ce réseau, après la première couche `conv1`, les dimensions
 
 ### ⚙️ Après les Couches de Convolution
 
-Après les couches de convolution, deux autres composants importants interviennent :
-
-
 <img src="Image sans titre.png" alt="Texte alternatif" width="500"/>
+
+Après les couches de convolution, deux autres composants importants interviennent :
 
 - **`State_fc`** : Cette partie du réseau est responsable de capturer l'état global de l'image et de le traduire en une représentation plus compacte.
 - **`Advantage_fc`** : Cette section est dédiée à évaluer l'"avantage" relatif de chaque action possible dans l'état actuel.
