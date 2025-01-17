@@ -13,6 +13,10 @@ Nous allons maintenant compléter le cours avec le code, en expliquant le foncti
 
 Avant tout, quand on parle d'image, il faut directement penser à sa résolution. Quelle résolution avons-nous besoin pour jouer à Doom avec une IA ?
 
+<div style="display:flex; flex-direction:row">
+    <img src="full_vision.png" alt="Texte alternatif" width="250"/>
+    <img src="low_vision.png" alt="Texte alternatif" width="250"/>
+</div>
 Pour la première image, la résolution est bien trop élevée. L'image contient beaucoup trop de détails inutiles et n'a pas nécessairement besoin d'afficher le nombre de balles restantes, la vie, la sélection d'arme, ainsi que tout le reste. Une réduction du nombre de pixels a été appliquée, permettant aux éléments principaux de ressortir clairement à l'œil nu.
 
 Ici, le réseau de neurones (NN) est plus conséquent et accomplit de nombreuses tâches à la fois. Le paramètre `available_actions_count` représente le nombre d'actions possibles dans le jeu, permettant ainsi au modèle de retourner le bon nombre de valeurs à la fin.
