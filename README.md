@@ -19,7 +19,7 @@ Ici, le réseau de neurones (NN) est plus conséquent et accomplit de nombreuses
 
 ### 🔍 Comment les CNN Comprennent les Images
 
-<img src="https://deeplizard.com/assets/gif/5c7cb9e5.gif" alt="Texte alternatif" width="500"/>
+<img src="https://deeplizard.com/assets/gif/5c7cb9e5.gif" alt="Texte alternatif" width="250"/>
 
 Pour que l'IA puisse comprendre les éléments visuels présents dans l'image, des filtres sont appliqués à chaque couche de convolution. Ces filtres permettent d'extraire des informations importantes, comme les **contours**, les **formes** ou les **textures**.
 
