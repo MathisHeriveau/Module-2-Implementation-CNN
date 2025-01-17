@@ -1,10 +1,11 @@
 # Module-2-Implementation-CNN
 
+<img src="fully_connected_layer1.png" alt="Texte alternatif" />
+
 ## 🎮 Réseau de neurones de convolution – Convolution Neural Network (CNN)
 
 Ces réseaux reposent sur des **filtres de convolution** (matrices numériques). Les filtres sont appliqués aux entrées avant que celles-ci ne soient transmises aux neurones. Ces réseaux de neurones sont particulièrement utiles pour le traitement et la prévision d'images. 
 
-![Exemple de CNN sur une image](https://deeplizard.com/assets/gif/5c7cb9e5.gif)
 
 Nous allons maintenant compléter le cours avec le code, en expliquant le fonctionnement du modèle, de l'algorithme de convolution, et de la rétropropagation à travers le jeu **Doom**.
 
@@ -17,6 +18,8 @@ Pour la première image, la résolution est bien trop élevée. L'image contient
 Ici, le réseau de neurones (NN) est plus conséquent et accomplit de nombreuses tâches à la fois. Le paramètre `available_actions_count` représente le nombre d'actions possibles dans le jeu, permettant ainsi au modèle de retourner le bon nombre de valeurs à la fin.
 
 ### 🔍 Comment les CNN Comprennent les Images
+
+<img src="https://deeplizard.com/assets/gif/5c7cb9e5.gif" alt="Texte alternatif" width="500"/>
 
 Pour que l'IA puisse comprendre les éléments visuels présents dans l'image, des filtres sont appliqués à chaque couche de convolution. Ces filtres permettent d'extraire des informations importantes, comme les **contours**, les **formes** ou les **textures**.
 
