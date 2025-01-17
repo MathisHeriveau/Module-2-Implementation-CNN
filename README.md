@@ -1,10 +1,43 @@
 # Module-2-Implementation-CNN
 
-## 🧠 Qu'est-ce qu'un Convolutional Neural Network (CNN) ?
+## 🎮 Réseau de neurones de convolution – Convolution Neural Network (CNN)
 
-Les **Réseaux de Neurones Convolutionnels (CNN)** sont une architecture de réseau de neurones principalement utilisée pour le traitement d'images, la reconnaissance d'objets, et d'autres tâches liées à la vision par ordinateur. Leur principal atout réside dans leur capacité à extraire des caractéristiques locales et hiérarchiques des images à travers l'application de **filtres convolutionnels**.
+Ces réseaux reposent sur des **filtres de convolution** (matrices numériques). Les filtres sont appliqués aux entrées avant que celles-ci ne soient transmises aux neurones. Ces réseaux de neurones sont particulièrement utiles pour le traitement et la prévision d'images. 
 
-Les CNN sont composés de plusieurs couches qui permettent d'extraire progressivement des informations de plus en plus complexes à partir des pixels d'une image. Ces couches comprennent des couches de **convolution**, de **pooling** et des couches **entièrement connectées (fully connected)**.
+![Exemple de CNN sur une image](https://deeplizard.com/assets/gif/5c7cb9e5.gif)
+
+Nous allons maintenant compléter le cours avec le code, en expliquant le fonctionnement du modèle, de l'algorithme de convolution, et de la rétropropagation à travers le jeu **Doom**.
+
+### 🖼️ La Résolution des Images dans Doom
+
+Avant tout, quand on parle d'image, il faut directement penser à sa résolution. Quelle résolution avons-nous besoin pour jouer à Doom avec une IA ?
+
+Pour la première image, la résolution est bien trop élevée. L'image contient beaucoup trop de détails inutiles et n'a pas nécessairement besoin d'afficher le nombre de balles restantes, la vie, la sélection d'arme, ainsi que tout le reste. Une réduction du nombre de pixels a été appliquée, permettant aux éléments principaux de ressortir clairement à l'œil nu.
+
+Ici, le réseau de neurones (NN) est plus conséquent et accomplit de nombreuses tâches à la fois. Le paramètre `available_actions_count` représente le nombre d'actions possibles dans le jeu, permettant ainsi au modèle de retourner le bon nombre de valeurs à la fin.
+
+### 🔍 Comment les CNN Comprennent les Images
+
+Pour que l'IA puisse comprendre les éléments visuels présents dans l'image, des filtres sont appliqués à chaque couche de convolution. Ces filtres permettent d'extraire des informations importantes, comme les **contours**, les **formes** ou les **textures**.
+
+Chaque couche de convolution applique trois transformations principales à l'image :
+
+1. **Passage à travers la couche `conv2d`**, qui effectue une opération de convolution sur l'image.
+2. **Normalisation des données via `BatchNorm2d`**, ce qui permet de stabiliser et accélérer l'entraînement en réduisant les problèmes de variance.
+3. **Application de la fonction d'activation ReLU** pour introduire de la non-linéarité et mieux représenter les relations complexes dans les données.
+
+### 🔄 Processus de Convolution
+
+Par exemple, dans ce réseau, après la première couche `conv1`, les dimensions de l'image sont réduites, mais ses caractéristiques principales sont conservées et mises en avant. Ce processus se répète pour les couches suivantes (`conv2`, `conv3`, etc.), permettant au réseau de mieux comprendre des détails de plus en plus abstraits.
+
+### ⚙️ Après les Couches de Convolution
+
+Après les couches de convolution, deux autres composants importants interviennent :
+
+- **`State_fc`** : Cette partie du réseau est responsable de capturer l'état global de l'image et de le traduire en une représentation plus compacte.
+- **`Advantage_fc`** : Cette section est dédiée à évaluer l'"avantage" relatif de chaque action possible dans l'état actuel.
+
+La sortie finale combine ces deux informations pour produire les **valeurs Q (Q-values)**, qui indiquent la qualité de chaque action possible dans le contexte actuel.
 
 ---
 
@@ -24,9 +57,10 @@ Grâce à **Gymnasium**, il est facile de connecter notre modèle d'IA à l'envi
 
 Pour entraîner l'IA à jouer à Doom avec un **CNN**, voici les étapes et le code à suivre :
 
+### 1. Installation des dépendances
+
 Vous devez d'abord installer **Gymnasium** et ses dépendances pour pouvoir utiliser l'environnement Doom :
 
 ```bash
 pip install gymnasium
 pip install "gymnasium[atari]"
-```
